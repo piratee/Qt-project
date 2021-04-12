@@ -51,7 +51,7 @@ void changeForm::processNextBtnClick(bool){
 }
 
 void changeForm::RecvShowSingal(QString str){
-    qDebug() << str ;
+    qDebug() << "back to form1 " << str ;
     this->show();
 }
 ////////////////////////////////////////////////////////

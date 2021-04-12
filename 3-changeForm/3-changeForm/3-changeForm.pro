@@ -17,16 +17,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     form2.cpp \
+    form3.cpp \
     main.cpp \
     changeform.cpp
 
 HEADERS += \
     changeform.h \
-    form2.h
+    form2.h \
+    form3.h
 
 FORMS += \
     changeform.ui \
-    form2.ui
+    form2.ui \
+    form3.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

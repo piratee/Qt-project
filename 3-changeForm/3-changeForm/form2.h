@@ -2,6 +2,7 @@
 #define FORM2_H
 
 #include <QWidget>
+#include "form3.h"
 
 namespace Ui {
 class Form2;
@@ -18,12 +19,15 @@ public:
 
 private slots:
     void processBack(bool);
+    void processNext(bool);
+    void processShowForm2(QString);
 
 signals:
     void SingalShowForm1(QString);
 
 private:
     Ui::Form2 *ui;
+    Form3 *p_gform3;
     int count;
     void Init();
 };

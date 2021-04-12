@@ -1,6 +1,7 @@
 #include "form2.h"
 #include "ui_form2.h"
 #include <QMovie>
+#include <QDebug>
 
 Form2::Form2(QWidget *parent) :
     QWidget(parent),
@@ -20,9 +21,14 @@ void Form2::Init(){
     myMovie->start();
     ui->label_2->setMovie(myMovie);
     ui->label_2->setScaledContents(true);
+    p_gform3 = new Form3();
     count = 0;
     connect(ui->btn_back,SIGNAL(clicked(bool)),
             this, SLOT(processBack(bool)));
+    connect(ui->btn_next, SIGNAL(clicked(bool)),
+            this, SLOT(processNext(bool)));
+    connect(p_gform3,SIGNAL(signalBackToForm2(QString)),
+            this, SLOT(processShowForm2(QString)));
 }
 
 void Form2::processBack(bool){
@@ -31,3 +37,14 @@ void Form2::processBack(bool){
     SingalShowForm1(QString::number(count));
     this->hide();
 }
+
+void Form2::processNext(bool){
+    p_gform3->show();
+    this->hide();
+}
+
+void Form2::processShowForm2(QString str){
+    qDebug() << "back to form2 " << str << endl;
+    this->show();
+}
+
